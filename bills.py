@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Form
 from models import BillModel
 from mongo_db import bills_collection
 from datetime import datetime
@@ -36,3 +36,4 @@ def get_bills(user: str):
     bills = list(bills_collection.find({"user": user}, {"_id": 0}))
 
     return bills
+
